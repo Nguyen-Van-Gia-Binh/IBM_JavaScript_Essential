@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Luxury Brand Feedback</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Luxury Brand</h1>
+        <h2>Product Feedback Portal</h2>
+
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Your Name" required>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" placeholder="Your Age" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Your Email" required>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="job">Job</label>
+                <input type="text" id="job" placeholder="Your Job" required>
+            </div>
+            <div class="form-group">
+                <label for="designation">Designation</label>
+                <input type="text" id="designation" placeholder="Your Designation" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="productType">Product Type</label>
+            <select id="productType" required>
+                <option value="perfume">Perfume</option>
+                <option value="cream">Cream</option>
+                <option value="oils">Oils</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="feedbackText">Feedback</label>
+            <textarea id="feedbackText" rows="3" placeholder="Enter your product feedback" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="userEx">How do you feel about our website?</label>
+            <textarea id="userEx" rows="3" placeholder="Your experience..." required></textarea>
+        </div>
+
+        <button id="submitBtn">Submit Feedback</button>
+
+        <hr>
+
+        <div id="userInfo" style="display: none;" class="summary-card">
+            <h3>Feedback Received</h3>
+            <br>
+            <div class="summary-grid">
+                <p><strong>Name:</strong> <span id="userName"></span></p>
+                <p><strong>Age:</strong> <span id="userAge"></span></p>
+                <p><strong>Email:</strong> <span id="userEmail"></span></p>
+                <p><strong>Job:</strong> <span id="userJob"></span></p>
+                <p><strong>Designation:</strong> <span id="userDesignation"></span></p>
+                <p><strong>Product:</strong> <span id="userProductChoice"></span></p>
+            </div>
+            <p class="summary-text"><strong>Feedback:</strong> <span id="userFeedback"></span></p>
+            <p class="summary-text"><strong>Site Experience:</strong> <span id="userExperience"></span></p>
+        </div>
+    </div>
+    <script src="./product_survey.js"></script>
+</body>
+
+</html>
