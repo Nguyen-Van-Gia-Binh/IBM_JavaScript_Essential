@@ -98,13 +98,18 @@ function addBook() {
 function showbooks() {
   const booksDiv = books.map(
     (book, index) => `<div class="book-card">
-        <h3>Book Number: ${index + 1}</h3>
-        <p><strong>Book Name: </strong>${book.bookName}</p> 
-        <p><strong>Author Name:</strong> ${book.authorName}</p>
-        <p><strong>Book Description:</strong> ${book.bookDescription}</p>
-        <p><strong>No. of Pages:</strong> ${book.pagesNumber} page(s)</p>
-        <button onclick="editbook(${index})">Edit</button> 
-        </div>`,
+        <div>
+            <h3>Book #${index + 1}</h3>
+            <p><strong>Name:</strong> ${book.bookName}</p> 
+            <p><strong>Author:</strong> ${book.authorName}</p>
+            <p><strong>Description:</strong> ${book.bookDescription}</p>
+            <p><strong>Pages:</strong> ${book.pagesNumber}</p>
+        </div>
+        <div class="card-actions">
+            <button class="btn-edit" onclick="editbook(${index})">Edit</button> 
+            <button class="btn-delete" onclick="deletebook(${index})">Delete</button> 
+        </div>
+    </div>`,
   );
   document.getElementById("books").innerHTML = booksDiv.join("");
 }
@@ -130,5 +135,11 @@ function clearInputs() {
   document.getElementById("bookDescription").value = "";
   document.getElementById("pagesNumber").value = "";
 }
+
+function deletebook(index) {
+  books.splice(index, 1);
+  showbooks();
+}
+
 // Add this at the end of your book_system.js file
 showbooks();
