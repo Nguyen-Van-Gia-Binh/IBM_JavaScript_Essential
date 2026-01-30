@@ -1,0 +1,103 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    color: #333;
+}
+
+h1 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    display: block;
+    width: 100%;
+    max-width: 600px;
+}
+
+textarea {
+    width: 100%;
+    max-width: 600px;
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    resize: none;
+    transition: border-color 0.3s ease;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+/* Style for the reference text area */
+#inputText {
+    background-color: #e9ecef;
+    color: #495057;
+    border-style: dashed;
+}
+
+/* Style for the user input area */
+#userInput:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.2);
+}
+
+.button-container {
+    display: flex;
+    gap: 15px;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.1s, background-color 0.2s;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* Start Button - Green */
+button[onclick="startTest()"] {
+    background-color: #27ae60;
+    color: white;
+}
+
+button[onclick="startTest()"]:hover {
+    background-color: #219150;
+}
+
+/* End Button - Red */
+button[onclick="endTest()"] {
+    background-color: #e74c3c;
+    color: white;
+}
+
+button[onclick="endTest()"]:hover {
+    background-color: #c0392b;
+}
+
+#output {
+    margin-top: 25px;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
