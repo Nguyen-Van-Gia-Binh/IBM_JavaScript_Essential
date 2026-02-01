@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Essential - Project Showcase</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0a2540;
+            --secondary: #1e6091;
+            --accent: #00b4d8;
+            --gold: #ffd700;
+            --light: #f8fafc;
+            --dark: #1a1a2e;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--light);
+            min-height: 100vh;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>') repeat;
+            background-size: 100px 100px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--gold), #ffab00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Projects Grid */
+        .projects-section {
+            padding: 60px 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title p {
+            color: #666;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: block;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-header {
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .card-title {
+            flex: 1;
+        }
+
+        .card-title h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            color: var(--dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .card-title span {
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        .card-body {
+            padding: 0 1.5rem 1.5rem;
+        }
+
+        .card-body p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .card-footer {
+            padding: 1rem 1.5rem;
+            background: #f8fafc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .tech-tags {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .tech-tag {
+            padding: 0.25rem 0.5rem;
+            background: rgba(0, 180, 216, 0.1);
+            color: var(--accent);
+            border-radius: 5px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .card-arrow {
+            color: var(--accent);
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover .card-arrow {
+            transform: translateX(5px);
+        }
+
+        /* Color Themes for Cards */
+        .theme-blue .card-icon {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .theme-green .card-icon {
+            background: linear-gradient(135deg, #11998e, #38ef7d);
+        }
+
+        .theme-orange .card-icon {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+        }
+
+        .theme-yellow .card-icon {
+            background: linear-gradient(135deg, #f7971e, #ffd200);
+        }
+
+        .theme-cyan .card-icon {
+            background: linear-gradient(135deg, #00b4d8, #0096c7);
+        }
+
+        .theme-purple .card-icon {
+            background: linear-gradient(135deg, #5f27cd, #341f97);
+        }
+
+        .theme-red .card-icon {
+            background: linear-gradient(135deg, #ee5a24, #ea2027);
+        }
+
+        .theme-teal .card-icon {
+            background: linear-gradient(135deg, #0a2540, #1e6091);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .footer p {
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-stats {
+                gap: 1.5rem;
+            }
+
+            .stat-number {
+                font-size: 1.8rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>JavaScript <span>Essential</span></h1>
+            <p>A collection of JavaScript projects demonstrating core concepts, DOM manipulation, API integration, and
+                modern web development practices.</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">13</div>
+                    <div class="stat-label">Projects</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Vanilla JS</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">✓</div>
+                    <div class="stat-label">Responsive</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="projects-section">
+        <div class="section-title">
+            <h2><i class="fas fa-code"></i> Project Showcase</h2>
+            <p>Click on any project to explore</p>
+        </div>
+
+        <div class="projects-grid">
+            <!-- Travel Recommendation -->
+            <a href="Travel-Recommendation/travel_recommendation.html" class="project-card theme-teal">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fas fa-globe-americas"></i></div>
+                    <div class="card-title">
+                        <h3>TravelBloom</h3>
+                        <span>Travel Recommendation</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p>A stunning travel website with AI chatbot, search functionality, and beautiful animations.</p>
+                </div>
+                <div class="card-footer">
+                    <div class="tech-tags">
+                        <span class="tech-tag">SPA</span>
+                        <span class="tech-tag">API</span>
+                        <span class="tech-tag">Chatbot</span>
+                    </div>
+                    <i class="fas fa-arrow-right card-arrow"></i>
+                </div>
+            </a>
+
+            <!-- Book System -->
+            <a href="BookSystem/book_system.html" class="project-card theme-blue">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fas fa-book"></i></div>
+                    <div class="card-title">
+                        <h3>Book System</h3>
+                        <span>Library Management</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p>Manage your book collection with add, edit, and delete functionality.</p>
+                </div>
+                <div class="card-footer">
+                    <div class="tech-tags">
+                        <span class="tech-tag">CRUD</span>
+                        <span class="tech-tag">DOM</span>
+                    </div>
+                    <i class="fas fa-arrow-right card-arrow"></i>
+                </div>
+            </a>
+
+            <!-- Employee Management -->
+            <a href="Employee/Employee.html" class="project-card theme-purple">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fas fa-users"></i></div>
+                    <div class="card-title">
+                        <h3>Employee System</h3>
+                        <span>HR Management</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p>Display, filter, and search employees with array methods demonstration.</p>
+                </div>
+                <div class="card-footer">
+                    <div class="tech-tags">
+                        <span class="tech-tag">Arrays</span>
+                        <span class="tech-tag">Filter</span>
+                    </div>
+                    <i class="fas fa-arrow-right card-arrow"></i>
+                </div>
+            </a>
+
+            <!-- Weather App -->
+            <a href="WeatherApp/weatherReport.html" class="project-card theme-cyan">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fas fa-cloud-sun"></i></div>
+                    <div class="card-title">
+                        <h3>Weather App</h3>
+                        <span>API Integration</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p>Real-time weather data from OpenWeather API with city search.</p>
+                </div>
+                <div class="card-footer">
+                    <div class="tech-tags">
+                        <span class="tech-tag">Fetch</span>
+                        <span class="tech-tag">API</span>
+                    </div>
+                    <i class="fas fa-arrow-right card-arrow"></i>
+                </div>
+            </a>
+
+            <!-- Todo List -->
+            <a href="Todo/todoList.html" class="project-card theme-green">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fas fa-check-square"></i></div>
+                    <div class="card-title">
+                        <h3>Todo List</h3>
+                        <span>Task Management</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p>Add, complete, and delete tasks with a clean interface.</p>
+                </div>
+                <div class="card-footer">
+                    <div class="tech-tags">
+                        <span class="tech-tag">Events</span>
+                        <span class="tech-tag">DOM</span>
+                    </div>
+                    <i class="fas fa-arrow-right card-arrow"></i>
+                </div>
+            </a>
+
+            <!-- Form Handling -->
+            <a href="FormHandling/formHandling.html" class="project-card theme-yellow">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fas fa-file-alt"></i></div>
+                    <div class="card-title">
+                        <h3>Feedback Form</h3>
+                        <span>Form Handling</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p>Luxury brand product feedback portal with validation.</p>
+                </div>
+                <div class="card-footer">
+                    <div class="tech-tags">
+                        <span class="tech-tag">Forms</span>
+                        <span class="tech-tag">Validation</span>
+                    </div>
+                    <i class="fas fa-arrow-right card-arrow"></i>
+                </div>
+            </a>
+
+            <!-- Speed Analysis -->
+            <a href="SpeedAnalysis/speedAnalysis.html" class="project-card theme-orange">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fas fa-keyboard"></i></div>
+                    <div class="card-title">
+                        <h3>Typing Test</h3>
+                        <span>Speed Analysis</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p>Test your typing speed with WPM and accuracy measurement.</p>
+                </div>
+                <div class="card-footer">
+                    <div class="tech-tags">
+                        <span class="tech-tag">Timer</span>
+                        <span class="tech-tag">Strings</span>
+                    </div>
+                    <i class="fas fa-arrow-right card-arrow"></i>
+                </div>
+            </a>
+
+            <!-- Restaurant Menu -->
+            <a href="Restaurant_menu/restaurant_menu.html" class="project-card theme-red">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fas fa-utensils"></i></div>
+                    <div class="card-title">
+                        <h3>Restaurant Menu</h3>
+                        <span>Iteration Demo</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p>Display categorized menu items using JavaScript iteration.</p>
+                </div>
+                <div class="card-footer">
+                    <div class="tech-tags">
+                        <span class="tech-tag">forEach</span>
+                        <span class="tech-tag">Objects</span>
+                    </div>
+                    <i class="fas fa-arrow-right card-arrow"></i>
+                </div>
+            </a>
+
+            <!-- Health Articles -->
+            <a href="Health_Article.html/healthArticle.html" class="project-card theme-green">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fas fa-heartbeat"></i></div>
+                    <div class="card-title">
+                        <h3>Health Articles</h3>
+                        <span>JSON Data</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p>Dynamic article display from JSON data source.</p>
+                </div>
+                <div class="card-footer">
+                    <div class="tech-tags">
+                        <span class="tech-tag">JSON</span>
+                        <span class="tech-tag">Fetch</span>
+                    </div>
+                    <i class="fas fa-arrow-right card-arrow"></i>
+                </div>
+            </a>
+
+            <!-- Calculate Area -->
+            <a href="Calculate_Area/calculate_Area.html" class="project-card theme-blue">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fas fa-calculator"></i></div>
+                    <div class="card-title">
+                        <h3>Area Calculator</h3>
+                        <span>Math Operations</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p>Calculate rectangle area with input validation.</p>
+                </div>
+                <div class="card-footer">
+                    <div class="tech-tags">
+                        <span class="tech-tag">Math</span>
+                        <span class="tech-tag">Input</span>
+                    </div>
+                    <i class="fas fa-arrow-right card-arrow"></i>
+                </div>
+            </a>
+
+            <!-- Sum Products -->
+            <a href="Sum_Products/Sum_products.html" class="project-card theme-green">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fas fa-plus-circle"></i></div>
+                    <div class="card-title">
+                        <h3>Sum Products</h3>
+                        <span>Arithmetic</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p>Sum multiple product amounts with instant calculation.</p>
+                </div>
+                <div class="card-footer">
+                    <div class="tech-tags">
+                        <span class="tech-tag">Numbers</span>
+                        <span class="tech-tag">DOM</span>
+                    </div>
+                    <i class="fas fa-arrow-right card-arrow"></i>
+                </div>
+            </a>
+
+            <!-- Error Handling -->
+            <a href="ErrorHandling/debugCode.html" class="project-card theme-orange">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fas fa-bug"></i></div>
+                    <div class="card-title">
+                        <h3>Debug Demo</h3>
+                        <span>Error Handling</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p>Demonstrate try-catch and debugging techniques.</p>
+                </div>
+                <div class="card-footer">
+                    <div class="tech-tags">
+                        <span class="tech-tag">Try-Catch</span>
+                        <span class="tech-tag">Debug</span>
+                    </div>
+                    <i class="fas fa-arrow-right card-arrow"></i>
+                </div>
+            </a>
+
+            <!-- VarLetConst -->
+            <a href="VarLetConst/index.html" class="project-card theme-purple">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fas fa-code"></i></div>
+                    <div class="card-title">
+                        <h3>Var, Let, Const</h3>
+                        <span>JS Concepts</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p>Understanding JavaScript variable declarations and scoping.</p>
+                </div>
+                <div class="card-footer">
+                    <div class="tech-tags">
+                        <span class="tech-tag">Scope</span>
+                        <span class="tech-tag">Hoisting</span>
+                    </div>
+                    <i class="fas fa-arrow-right card-arrow"></i>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2026 JavaScript Essential - Web201c Course Review Projects</p>
+    </footer>
+</body>
+
+</html>

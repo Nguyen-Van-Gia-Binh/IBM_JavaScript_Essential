@@ -1,0 +1,148 @@
+/* VarLetConst - Modern CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h1 {
+    color: #fff;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 2rem;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: left;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.var-card {
+    border-left: 4px solid #f39c12;
+}
+
+.let-card {
+    border-left: 4px solid #3498db;
+}
+
+.const-card {
+    border-left: 4px solid #e74c3c;
+}
+
+.card h2 {
+    color: #fff;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.keyword {
+    font-family: 'Courier New', monospace;
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.var-card .keyword {
+    background: rgba(243, 156, 18, 0.3);
+    color: #f39c12;
+}
+
+.let-card .keyword {
+    background: rgba(52, 152, 219, 0.3);
+    color: #3498db;
+}
+
+.const-card .keyword {
+    background: rgba(231, 76, 60, 0.3);
+    color: #e74c3c;
+}
+
+.card ul {
+    list-style: none;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1rem;
+}
+
+.card li {
+    padding: 0.3rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.card li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.code-example {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1rem;
+    border-radius: 8px;
+    overflow-x: auto;
+}
+
+.code-example code {
+    font-family: 'Courier New', monospace;
+    color: #2ecc71;
+    font-size: 0.9rem;
+}
+
+button {
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+}
+
+#output {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: rgba(46, 204, 113, 0.2);
+    border-radius: 10px;
+    color: #2ecc71;
+    min-height: 20px;
+}
+
+#output p {
+    margin: 0;
+}
