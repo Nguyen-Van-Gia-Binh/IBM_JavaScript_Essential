@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Var, Let & Const Demo</title>
+    <link rel="stylesheet" href="../shared.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <a href="../index.html" class="back-btn">Back to Home</a>
+    <div class="container">
+        <h1>📝 Var, Let & Const</h1>
+        <p class="subtitle">Understanding JavaScript Variable Declarations</p>
+
+        <div class="card var-card">
+            <h2><span class="keyword">var</span></h2>
+            <ul>
+                <li>Function-scoped</li>
+                <li>Can be redeclared</li>
+                <li>Hoisted (initialized as undefined)</li>
+            </ul>
+            <div class="code-example">
+                <code>var x = 10;<br>var x = 20; // OK</code>
+            </div>
+        </div>
+
+        <div class="card let-card">
+            <h2><span class="keyword">let</span></h2>
+            <ul>
+                <li>Block-scoped</li>
+                <li>Cannot be redeclared</li>
+                <li>Hoisted but not initialized (TDZ)</li>
+            </ul>
+            <div class="code-example">
+                <code>let y = 10;<br>y = 20; // OK<br>// let y = 30; // Error!</code>
+            </div>
+        </div>
+
+        <div class="card const-card">
+            <h2><span class="keyword">const</span></h2>
+            <ul>
+                <li>Block-scoped</li>
+                <li>Must be initialized</li>
+                <li>Cannot be reassigned</li>
+            </ul>
+            <div class="code-example">
+                <code>const z = 10;<br>// z = 20; // Error!<br>// Must use initial value</code>
+            </div>
+        </div>
+
+        <button onclick="runDemo()">Run Console Demo</button>
+        <div id="output"></div>
+    </div>
+    <script src="varLetConst.js"></script>
+    <script>
+        function runDemo() {
+            const output = document.getElementById('output');
+            output.innerHTML = '<p>✅ Check your browser console (F12) to see the demo output!</p>';
+        }
+    </script>
+</body>
+
+</html>
