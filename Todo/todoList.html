@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ToDo List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="todo-container">
+        <h1>ToDo List</h1>
+
+        <div class="input-group">
+            <input type="text" id="taskInput" placeholder="What needs to be done?">
+            <button id="addTaskBtn">Add</button>
+        </div>
+
+        <ul id="taskList">
+        </ul>
+
+        <div class="actions">
+            <button id="clearCompletedBtn">Clear Done</button>
+            <button class="clear-all-btn" onclick="clearAll()">Clear All</button>
+        </div>
+    </div>
+
+    <script src="todo.js"></script>
+</body>
+
+</html>

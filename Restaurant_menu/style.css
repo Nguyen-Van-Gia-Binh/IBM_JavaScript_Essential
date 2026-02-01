@@ -1,0 +1,81 @@
+/* General Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f5f0; /* Soft cream background */
+    color: #333;
+    line-height: 1.6;
+    padding: 40px 20px;
+}
+
+/* Main Container Styling */
+h1 {
+    text-align: center;
+    font-family: 'Georgia', serif;
+    font-size: 3rem;
+    color: #2c3e50;
+    margin-bottom: 50px;
+    border-bottom: 2px solid #d4af37; /* Gold accent */
+    display: inline-block;
+    width: 100%;
+    padding-bottom: 10px;
+}
+
+h2 {
+    font-family: 'Georgia', serif;
+    font-size: 2rem;
+    color: #8e44ad; /* Elegant purple/plum */
+    margin-top: 40px;
+    margin-bottom: 15px;
+    border-left: 5px solid #8e44ad;
+    padding-left: 15px;
+}
+
+/* Total Items Badge */
+[id$="TotalItems"] {
+    font-style: italic;
+    color: #7f8c8d;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+/* Menu Item Container (The Grid) */
+[id$="MenuItems"] {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+/* Styling for items likely injected by JS */
+/* (Assuming JS creates div or p tags for items) */
+[id$="MenuItems"] > div, 
+[id$="MenuItems"] > p {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+    border: 1px solid #eee;
+}
+
+[id$="MenuItems"] > div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    body {
+        padding: 20px 10px;
+    }
+}

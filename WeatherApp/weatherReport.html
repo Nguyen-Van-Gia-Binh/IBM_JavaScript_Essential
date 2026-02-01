@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Report</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="weather-container">
+        <h1>Weather Report</h1>
+
+        <form id="weatherForm">
+            <label for="apiKey">OpenWeather API Key:</label>
+            <input type="password" id="apiKey" placeholder="Paste your API key here">
+
+            <label for="city">Enter City:</label>
+            <input type="text" id="city" name="city" placeholder="e.g. Hanoi, London...">
+
+            <button type="submit">Get Weather</button>
+        </form>
+
+        <div id="weatherInfo"></div>
+    </div>
+
+    <script src="./weather_report.js"></script>
+</body>
+
+</html>

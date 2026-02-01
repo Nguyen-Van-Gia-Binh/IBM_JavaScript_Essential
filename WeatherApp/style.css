@@ -1,0 +1,137 @@
+/* Import font chữ hiện đại */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    /* Đổi sang gradient đậm hơn để chữ trắng nổi lên rõ rệt */
+    background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+}
+
+.weather-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 2.5rem;
+    border-radius: 24px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    text-align: center;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    letter-spacing: -0.5px;
+    color: #fff;
+}
+
+#weatherForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.input-group {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #cbd5e1; /* Màu xám nhạt để phân biệt với nội dung chính */
+    text-transform: uppercase;
+}
+
+input {
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.2);
+    color: #fff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: #38bdf8; /* Màu xanh neon làm điểm nhấn khi gõ */
+    background: rgba(0, 0, 0, 0.3);
+}
+
+button {
+    margin-top: 10px;
+    padding: 14px;
+    border-radius: 12px;
+    border: none;
+    background: #38bdf8;
+    color: #0f172a; /* Chữ đậm trên nền sáng để dễ đọc */
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: #7dd3fc;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(56, 189, 248, 0.4);
+}
+
+/* KHU VỰC HIỂN THỊ KẾT QUẢ - Đã được tối ưu độ tương phản */
+#weatherInfo {
+    margin-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1.5rem;
+    animation: fadeIn 0.5s ease;
+}
+
+#weatherInfo h2 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+/* Các box chứa thông tin thời tiết */
+.info-box {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 12px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.info-box p {
+    font-weight: 500;
+    color: #f1f5f9;
+}
+
+.temp-val {
+    color: #fbbf24; /* Màu vàng cho nhiệt độ để nổi bật */
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
